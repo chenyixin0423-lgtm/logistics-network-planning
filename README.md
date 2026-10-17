@@ -1,50 +1,60 @@
 # Logistics Network Planning Platform
 
-**Collaborative Project · Application Engineering Portfolio**
+**Collaborative project | Software engineering portfolio**
 
-A logistics planning platform that connects Excel-based workflows with a map interface. The original system helped planners explore warehouse locations and organize pickup or delivery routes using demand, transport costs and vehicle constraints.
+A logistics planning application designed to bring warehouse-location and transportation-route planning workflows into a single interface. The original team project combined structured Excel inputs, planning algorithms, backend services, and interactive map visualizations to help users explore logistics planning scenarios.
+
+## Key Features
+
+- **Warehouse planning:** Enter demand information and configure candidate or specified warehouse locations.
+- **Route planning:** Set up pickup and delivery scenarios, routing strategies, and calculation constraints.
+- **Excel workflows:** Upload planning inputs, validate fields, and handle generated result files.
+- **Map visualization:** Display locations and routes through AMap, including marker and movement visualization features.
+
+These features describe the original collaborative system. The public repository contains a selected portion of its application code, not the complete working platform.
+
+## Technology Stack
+
+| Layer | Technologies |
+| --- | --- |
+| Frontend | Vue 2, Vue Router, Element UI, Axios |
+| Backend | Python, Flask, pandas |
+| Mapping | AMap (Gaode Maps) APIs |
+| Original team's algorithm layer (not included) | Scikit-learn, OR-Tools |
 
 ## My Contribution
-I contributed to selected software-engineering development tasks within a team. **I did not design or implement the warehouse-location or route-planning algorithms; those were contributions of other project members.**
 
-This repository focuses on the application layer: interface logic, API interaction, workbook validation, workflow coordination and map presentation. It does not claim that I independently developed the entire platform or authored every retained line.
+I contributed to **selected software engineering and application development tasks** as part of the project team. My work was on the engineering side rather than the design or implementation of the core warehouse-location and route-planning algorithms, which were developed by other team members.
 
-## Project Features
-- Warehouse-planning forms with demand inputs and optional specified warehouses.
-- Route-planning settings for pickup/delivery, routing strategy and calculation limits.
-- Excel uploads, field validation and result-download handling.
-- AMap interaction for location markers, route display and movement animation.
+This portfolio repository highlights the platform's application-layer structure and illustrates how its user interface, backend endpoints, data-validation workflows, and mapping integration fit together. It should not be taken to mean that I individually authored every included component.
 
-These describe capabilities of the original collaborative system. **The public repository excludes the team's algorithm implementations**, so it cannot calculate complete planning results on its own.
-
-## Tech Stack and Architecture
-The original platform used Vue 2, Element UI, Axios, Flask, pandas, Scikit-learn, OR-Tools and map APIs. The public application layer uses Vue 2, Vue Router, Element UI, Axios, Flask, pandas and AMap. Scikit-learn and OR-Tools belonged to the excluded algorithm layer.
+## How the System Fits Together
 
 ```text
-Excel input → Vue interface → Flask endpoints → team planning algorithms
-                    ↑                                  ↓
-             map presentation ← planning results / Excel export
+Excel planning inputs
+         |
+         v
+Vue interface and forms
+         |
+         v
+Flask API and workflow coordination
+         |
+         v
+Team planning algorithms (not published)
+         |
+         v
+Planning results -> Excel output / map visualization
 ```
+
+The public source includes the following selected components:
 
 ```text
-frontend/
-  src/main.js, App.vue, router/    Application entry and navigation
-  src/page/                       Warehouse and route screen logic
-  src/api.js                      API request integration
-  package.json, .env.example      Dependency and configuration references
-backend/
-  main.py                         Flask upload, planning and download endpoints
-  service/                        Workflow coordination and route API boundary
-  algorithm_boundary.py           Explicit boundary for omitted warehouse models
-  utils/check.py                  Workbook schema and field validation
-  paths.py, requirements.txt      Local paths and dependency reference
+frontend/   Vue views, routing, API integration, and configuration examples
+backend/    Flask endpoints, workflow services, validation, and integration boundaries
 ```
 
-## Public Scope and Limitations
-Business data, original Excel templates, private lookup tables, screenshots, third-party pictures/GeoJSON, collaborator utilities, old installers and compiled bundles are excluded. Map markers use SDK defaults; no map imagery or SDK implementation is bundled.
+## About This Public Version
 
-The warehouse model boundary raises `NotImplementedError`, which the workflow reports as a failure; the route boundary returns an explicit `unavailable` response. Neither provides a replacement algorithm. Address-helper integrations are also omitted. Existing result-download handlers require locally generated files that are not included.
+This is a **portfolio-oriented excerpt of an earlier collaborative project**, not a ready-to-deploy application. The team's planning algorithms, operational datasets, original Excel templates, certain third-party assets, and historical build artifacts are intentionally excluded. As a result, warehouse and route calculations cannot run end to end from this repository alone.
 
-The frontend entry and routes are retained, but the legacy bundler configuration is omitted. A compatible Vue 2 build setup must supply `AMAP_JS_KEY` and `AMAP_SECURITY_JS_CODE`; `.env.example` is a reference, not an automatically loaded configuration. Dependency manifests describe the historical stack, not a verified clean installation. This is source for portfolio review, not a production deployment package.
-
-Python syntax, local module references, Vue script parsing and Vue template compilation were checked. Full installation, application builds, map calls and end-to-end planning were not verified. No measured performance or business savings are claimed.
+Some original build configuration and integrations are also absent. API credentials are not included; any future local setup would require appropriate map-service credentials and a compatible legacy environment. Basic source and template checks were performed, but a clean installation and full application run have not been verified.
