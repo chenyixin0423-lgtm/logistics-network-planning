@@ -1,0 +1,13 @@
+{
+  "name": "collaborative-logistics-planning-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Application engineering source from a collaborative logistics planning project.",
+  "dependencies": {
+    "vue": "2.7.14",
+    "element-ui": "2.15.12",
+    "axios": "0.27.2",
+    "@amap/amap-jsapi-loader": "1.0.1",
+    "vue-router": "3.6.5"
+  }
+}
